@@ -11,20 +11,20 @@ const PaymentError = () => {
 
   // Send additional alerts on error page transition.
   useEffect(() => {
-    const fetchdata = async () => {
-      try {
-        const result = await sendPayment({});
-        setData(result.data);
-      } catch (error) {
-        setData(error.response);
-      }
-    };
-    fetchdata();
-    // // AWS CloudWatch Bill
-    // setTimeout(cloudWatchBill, 30000);
-    // // Payment & Order Management Incidents
-    // setTimeout(outOfMemory, 60000);
-    // setTimeout(lowRevenue, 60000);
+    // const fetchdata = async () => {
+    //   try {
+    //     const result = await sendPayment({});
+    //     setData(result.data);
+    //   } catch (error) {
+    //     setData(error.response);
+    //   }
+    // };
+    // fetchdata();
+    // AWS CloudWatch Bill
+    setTimeout(cloudWatchBill, 30000);
+    // Payment & Order Management Incidents
+    setTimeout(outOfMemory, 60000);
+    setTimeout(lowRevenue, 60000);
   }, []);
 
   return (
@@ -36,7 +36,7 @@ const PaymentError = () => {
             Unable to process payment, please try again later
           </Header>
         </Segment>
-        {/* <pre>
+        <pre>
           {`
         javax.persistence.PersistenceException: org.hibernate.exception.GenericJDBCException: Unable to acquire JDBC Connection
               Caused by: org.hibernate.exception.GenericJDBCException: Unable to acquire JDBC Connection
@@ -45,8 +45,8 @@ const PaymentError = () => {
               at org.hibernate.query.internal.AbstractProducedQuery.list(AbstractProducedQuery.java:1423)
               at org.hibernate.query.Query.getResultList(Query.java:146)
               ... 108 more`}
-        </pre> */}
-        <pre>{response.data.error}</pre>
+        </pre>
+        {/* <pre>{response.data.error}</pre> */}
       </Segment.Group>
     </Container>
   );

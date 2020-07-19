@@ -183,11 +183,11 @@ export const lowRevenue = () => {
         "Warning: Low payments detected - under £100k across 5 minute period",
       source: "Salesforce",
       severity: "warning",
-      component: "order_management",
+      component: "analytics",
       group: "prod",
       class: "revenue",
       custom_details: {
-        host: "pod/order-management-bf6466bb7-h9rpw",
+        host: "pod/analytics-bf6466bb7-h9rpw",
         priority: "P3",
         event_id: generateID(),
         tags: ["aws-eks-prod", "pd_az:us-west-2c", "production", "mariadb"],
