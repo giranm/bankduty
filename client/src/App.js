@@ -7,6 +7,9 @@ import Menu from "./components/menu/Menu";
 
 import ViewPort from "./components/view/ViewPort";
 
+import CarInsuranceForm from "./components/car-insurance/CarInsuranceForm";
+import CarInsuranceError from "./components/car-insurance/CarInsuranceError";
+
 import PaymentForm from "./components/payments/PaymentForm";
 import PaymentError from "./components/payments/PaymentError";
 
@@ -22,6 +25,18 @@ const views = [
     label: "Payments Error",
     header: "500: Internal Server Error",
     component: PaymentError,
+  },
+  {
+    path: "/car-insurance",
+    label: "Car Insurance",
+    header: "Car Insurance",
+    component: CarInsuranceForm,
+  },
+  {
+    path: "/car-insurance/error",
+    label: "Car Insurance Error",
+    header: "500: Internal Server Error",
+    component: CarInsuranceError,
   },
 ];
 

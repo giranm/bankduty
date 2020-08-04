@@ -62,6 +62,11 @@ const TopBarMenu = () => {
                 Pensions
               </Link>
             </Dropdown.Item>
+            <Dropdown.Item>
+              <Link style={LinkStyle} to="/car-insurance">
+                Car Insurance
+              </Link>
+            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
 

@@ -18,11 +18,11 @@ import SemanticDatepicker from "react-semantic-ui-datepickers";
 import accounts from "./Accounts";
 
 import {
-  transactionFailure,
-  transactionTimeout,
+  paymentTransactionFailure,
+  paymentTransactionTimeout,
   highCPU,
   customerIssues,
-} from "./mock-errors/errors";
+} from "../../services/mock-errors/errors";
 
 import "react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css";
 
@@ -115,8 +115,8 @@ const processPayment = ({ history, setProcessing }) => {
   setProcessing(true);
 
   // Fire off calls on a given schedule.
-  setTimeout(transactionFailure, 3000);
-  setTimeout(transactionTimeout, 5000);
+  setTimeout(paymentTransactionFailure, 3000);
+  setTimeout(paymentTransactionTimeout, 5000);
   setTimeout(highCPU, 5000);
   setTimeout(customerIssues, 5500);
 

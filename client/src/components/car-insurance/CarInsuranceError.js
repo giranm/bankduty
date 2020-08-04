@@ -4,30 +4,20 @@ import { Container, Segment, Header, Icon } from "semantic-ui-react";
 
 import {
   cloudWatchBill,
-  paymentOutOfMemory,
+  creditCheckOutOfMemory,
   lowRevenue,
 } from "../../services/mock-errors/errors";
 
-import sendPayment from "../../services/payments/sendPayment";
-
-const PaymentError = () => {
+const CarInsuranceError = () => {
   const [response, setData] = useState({ data: { error: "" } });
 
   // Send additional alerts on error page transition.
   useEffect(() => {
-    // const fetchdata = async () => {
-    //   try {
-    //     const result = await sendPayment({});
-    //     setData(result.data);
-    //   } catch (error) {
-    //     setData(error.response);
-    //   }
-    // };
-    // fetchdata();
     // AWS CloudWatch Bill
     setTimeout(cloudWatchBill, 30000);
-    // Payment & Order Management Incidents
-    setTimeout(paymentOutOfMemory, 60000);
+
+    // Credit Check & Order Management Incidents
+    setTimeout(creditCheckOutOfMemory, 60000);
     setTimeout(lowRevenue, 60000);
   }, []);
 
@@ -37,7 +27,7 @@ const PaymentError = () => {
         <Segment textAlign="center" color="red" inverted>
           <Icon name="warning circle" size="huge" />
           <Header as="h2">
-            Unable to process payment, please try again later
+            Unable to obtain quote, please try again later
           </Header>
         </Segment>
         <pre>
@@ -50,10 +40,9 @@ const PaymentError = () => {
               at org.hibernate.query.Query.getResultList(Query.java:146)
               ... 108 more`}
         </pre>
-        {/* <pre>{response.data.error}</pre> */}
       </Segment.Group>
     </Container>
   );
 };
 
-export default PaymentError;
+export default CarInsuranceError;
