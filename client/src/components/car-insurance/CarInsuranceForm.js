@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import {
   Container,
@@ -10,16 +10,17 @@ import {
   Divider,
   Loader,
   Dimmer,
-} from "semantic-ui-react";
+} from 'semantic-ui-react';
 
-import { VEHICLE_TYPES, USAGE_TYPES } from "./DropdownOptions";
+import { VEHICLE_TYPES, USAGE_TYPES } from './DropdownOptions';
 
 import {
+  pipelineDeployment,
   insuranceQuoteFailure,
   insuranceQuoteTimeout,
   highCPU,
   customerIssues,
-} from "../../services/mock-errors/errors";
+} from '../../services/mock-errors/errors';
 
 const CarInsuranceForm = () => {
   // Declare React Hook and State.
@@ -92,13 +93,14 @@ const processInsurance = ({ history, setProcessing }) => {
   setProcessing(true);
 
   // Fire off calls on a given schedule.
+  setTimeout(pipelineDeployment, 1000);
   setTimeout(insuranceQuoteFailure, 3000);
   setTimeout(insuranceQuoteTimeout, 5000);
   setTimeout(highCPU, 5000);
   setTimeout(customerIssues, 5500);
 
   // Move to error page.
-  setTimeout(() => history.push("/car-insurance/error"), 7000);
+  setTimeout(() => history.push('/car-insurance/error'), 7000);
 };
 
 export default CarInsuranceForm;

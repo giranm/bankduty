@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import {
   Container,
@@ -12,19 +12,20 @@ import {
   Divider,
   Loader,
   Dimmer,
-} from "semantic-ui-react";
-import SemanticDatepicker from "react-semantic-ui-datepickers";
+} from 'semantic-ui-react';
+import SemanticDatepicker from 'react-semantic-ui-datepickers';
 
-import accounts from "./Accounts";
+import accounts from './Accounts';
 
 import {
+  pipelineDeployment,
   paymentTransactionFailure,
   paymentTransactionTimeout,
   highCPU,
   customerIssues,
-} from "../../services/mock-errors/errors";
+} from '../../services/mock-errors/errors';
 
-import "react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css";
+import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css';
 
 const PaymentForm = () => {
   // Declare React Hook and State.
@@ -47,7 +48,7 @@ const PaymentForm = () => {
               <Label as="a" color="blue" ribbon>
                 Account Balance
               </Label>
-              <Message positive size="large" style={{ "text-align": "right" }}>
+              <Message positive size="large" style={{ 'text-align': 'right' }}>
                 <b>£3,402.23</b>
               </Message>
             </Segment>
@@ -115,13 +116,14 @@ const processPayment = ({ history, setProcessing }) => {
   setProcessing(true);
 
   // Fire off calls on a given schedule.
+  setTimeout(pipelineDeployment, 1000);
   setTimeout(paymentTransactionFailure, 3000);
   setTimeout(paymentTransactionTimeout, 5000);
   setTimeout(highCPU, 5000);
   setTimeout(customerIssues, 5500);
 
   // Move to error page.
-  setTimeout(() => history.push("/payments/error"), 7000);
+  setTimeout(() => history.push('/payments/error'), 7000);
 };
 
 export default PaymentForm;
